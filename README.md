@@ -22,7 +22,7 @@ The two scripts are independent and can be run in either order.
 
 Not included in this repository. The input is clinical and expression data from the TCGA-BRCA cohort, and although it is open access, it is cited rather than redistributed here.
 
-Both scripts expect two files in `data/`:
+Both s expect two files in `data/`:
 
 - `BRCA_exp_matrix.tsv`: count matrix, genes in rows (HGNC symbols) and samples in columns.
 - `clinical_info_TCGA-BRCA.tsv`: clinical table with a `sample` column of sample identifiers plus `er_status_by_ihc` and `age_at_diagnosis`.
@@ -30,15 +30,15 @@ Both scripts expect two files in `data/`:
 Alternative paths can be passed as arguments:
 
 ```
-Rscript 01_differential_expression_go.R path/expression.tsv path/clinical.tsv [output_dir]
-Rscript 02_hipathia_pathway_activation.R path/counts.tsv path/clinical.tsv [output_dir]
+R 01_differential_expression_go.R path/expression.tsv path/clinical.tsv [output_dir]
+R 02_hipathia_pathway_activation.R path/counts.tsv path/clinical.tsv [output_dir]
 ```
 
-The clinical file carries an unnamed first column, so its header has one field fewer than its data rows. Both scripts read it with `read.delim`, which detects that case and realigns the header. Reading it with `fread` instead shifts the column names and silently selects the wrong variables.
+The clinical file carries an unnamed first column, so its header has one field fewer than its data rows. Both s read it with `read.delim`, which detects that case and realigns the header. Reading it with `fread` instead shifts the column names and silently selects the wrong variables.
 
 ## Results
 
-**Differential expression (script 01)**
+**Differential expression ( 01)**
 
 After discarding samples with unknown ER status or missing age, 983 tumours remain: 759 ER positive and 224 ER negative, across 20,500 genes.
 
@@ -56,9 +56,6 @@ Enrichment was run on the 2,523 strict genes and returns processes consistent wi
 
 ![GO Biological Process enrichment](figures/06_GO_BP_dotplot.png)
 
-**Pathway activation (script 02)**
-
-To be completed with the output of `02_hipathia_pathway_activation.R`.
 
 ## Repository layout
 
