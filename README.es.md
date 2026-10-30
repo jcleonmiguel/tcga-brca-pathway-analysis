@@ -56,9 +56,6 @@ El enriquecimiento se ejecutó sobre los 2.523 genes del filtro estricto y devue
 
 ![Enriquecimiento GO de procesos biológicos](figures/06_GO_BP_dotplot.png)
 
-**Activación de rutas (script 02)**
-
-Pendiente de completar con los resultados de `02_hipathia_pathway_activation.R`.
 
 ## Estructura
 
